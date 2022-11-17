@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+
 /**
  * Help class for ExpressionEvaluator, checks if arithmetic expression is valid
  */
@@ -60,6 +61,7 @@ public class ExpressionCheck {
             else if (a.equals(")")){
                 numRightParenthesis=numRightParenthesis+1;
                 if(pom>1) return false;
+                pom=0;
             }
             if(a.length()>1 && !a.equals("sqrt")){
                 try{
@@ -75,6 +77,9 @@ public class ExpressionCheck {
             }
         }
         if(numLeftParenthesis!=numRightParenthesis || numOperators!=numRightParenthesis) return false;
+        for(int i=0;i<s.length()-1;i++){
+            if(isOperator(String.valueOf(s.charAt(i))) && !isOperand(String.valueOf(s.charAt(i+2))) && s.charAt(i+2)!='(') return false;
+        }
         return true;
     }
 }
