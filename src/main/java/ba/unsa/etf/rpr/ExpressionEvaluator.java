@@ -4,13 +4,22 @@ import java.util.Stack;
 
 import static ba.unsa.etf.rpr.ExpressionCheck.isExpressionValid;
 
+/**
+ * Class for evaluating arithmetic expressions using Djikstra's algorithm
+ *
+ */
 public class ExpressionEvaluator {
-
+    /**
+     *
+     * @param exp which represents the arithmetic expression
+     * @return result of the arithmetic expression
+     * @throws RuntimeException if arithmetic expression is not valid
+     */
     public static Double evaluate(String exp) throws RuntimeException{
         Stack<Double> operands=new Stack<Double>();
         Stack<String> operators=new Stack<String>();
         exp.trim();
-        if (!isExpressionValid(exp)) throw new RuntimeException("Izraz nije validan");
+        if (!isExpressionValid(exp)) throw new RuntimeException("Expression is not valid");
         for(String c: exp.split(" ")){
             if(c.equals("(")) continue;
             if(c.equals("+")) operators.push(c);
