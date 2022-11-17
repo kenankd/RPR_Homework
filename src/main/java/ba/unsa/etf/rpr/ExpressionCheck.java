@@ -51,10 +51,16 @@ public class ExpressionCheck {
         //provjera prvog i zadnjeg znaka stringa
         if(s.charAt(0)!='(' || s.charAt(s.length()-1)!=')')
             return false;
-        int numLeftParenthesis=0,numRightParenthesis=0,numOperators=0;
+        int numLeftParenthesis=0,numRightParenthesis=0,numOperators=0,pom=0;
         for(String a : s.split(" ")) {
-            if(a.equals("(")) numLeftParenthesis=numLeftParenthesis+1;
-            else if (a.equals(")")) numRightParenthesis=numRightParenthesis+1;
+            if(a.equals("(")){
+                numLeftParenthesis=numLeftParenthesis+1;
+                pom=0;
+            }
+            else if (a.equals(")")){
+                numRightParenthesis=numRightParenthesis+1;
+                if(pom>1) return false;
+            }
             if(a.length()>1 && !a.equals("sqrt")){
                 try{
                     Double.parseDouble(a);
@@ -63,7 +69,10 @@ public class ExpressionCheck {
                     return false;
                 }
             }
-            if(isOperator(a) || isOperatorSqrt(a)) numOperators++;
+            if(isOperator(a) || isOperatorSqrt(a)){
+                numOperators++;
+                pom++;
+            }
         }
         if(numLeftParenthesis!=numRightParenthesis || numOperators!=numRightParenthesis) return false;
         return true;
