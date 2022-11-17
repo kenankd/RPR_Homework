@@ -31,9 +31,7 @@ public class ExpressionEvaluator {
             }
             if(s.charAt(i)=='(') numLeftParenthesis=numLeftParenthesis+1;
             else if (s.charAt(i)==')') numRightParenthesis=numRightParenthesis+1;
-            if(isOperator(String.valueOf(s.charAt(i)))
-                    && (!isOperand(String.valueOf(s.charAt(i-2))) || !isOperand(String.valueOf(s.charAt(i+2)))))
-                return false;
+
             if(isOperand(String.valueOf(s.charAt(i))) && !isOperator(String.valueOf(s.charAt(i-2))) && !isOperator(String.valueOf(s.charAt(i+2))))
                 return false;
         }
