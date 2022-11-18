@@ -10,7 +10,7 @@ public class ExpressionCheck {
      * @param s
      * @return true if parameter string is sqrt
      */
-    private static boolean isOperatorSqrt(String s){
+    public static boolean isOperatorSqrt(String s){
         return s.equals("sqrt");
     }
 
@@ -19,7 +19,7 @@ public class ExpressionCheck {
      * @param s string
      * @return  true if given string is an operator
      */
-    private static boolean isOperator(String s){
+    public static boolean isOperator(String s){
         return s.equals("+") || s.equals("-") || s.equals("/") || s.equals("*");
     }
 
@@ -28,7 +28,7 @@ public class ExpressionCheck {
      * @param s string
      * @return true if string string is an operand
      */
-    private static boolean isOperand(String s){
+    public static boolean isOperand(String s){
         if(s.equals("sqrt")) return false;
         try{
             Double.parseDouble(s);
