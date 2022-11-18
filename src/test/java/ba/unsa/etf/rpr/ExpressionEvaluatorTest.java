@@ -19,6 +19,10 @@ public class ExpressionEvaluatorTest {
         assertEquals(39,ExpressionEvaluator.evaluate("( 34 + ( 2 * ( 5 / 2 ) ) )"));
     }
     @Test
+    void doubleTest1(){
+        assertEquals(2,ExpressionEvaluator.evaluate("( sqrt 4 )"));
+    }
+    @Test
     void largeEquationTest(){
         assertEquals(76,ExpressionEvaluator.evaluate("( 34 + ( 2 * ( ( sqrt 49 ) * 3 ) ) )"));
     }
