@@ -19,13 +19,10 @@ public class ExpressionEvaluatorTest {
         assertEquals(39,ExpressionEvaluator.evaluate("( 34 + ( 2 * ( 5 / 2 ) ) )"));
     }
     @Test
-    void doubleTest1(){
-        assertEquals(2,ExpressionEvaluator.evaluate("( sqrt 4 )"));
-    }
-    @Test
     void largeEquationTest(){
-        assertEquals(76,ExpressionEvaluator.evaluate("( 34 + ( 2 * ( ( sqrt 49 ) * 3 ) ) )"));
+        assertEquals(76,ExpressionEvaluator.evaluate("( 34 + ( 2 * ( sqrt ( 49 ) * 3 ) ) )"));
     }
+    //
     @Test
     void validityOfExpressionTest(){
         assertThrows(RuntimeException.class,()->{ double d = ExpressionEvaluator.evaluate("( 1 + ( 2 * ( sqrt + 3 ) ) )");});
@@ -40,7 +37,7 @@ public class ExpressionEvaluatorTest {
     }
     @Test
     void validityofExpressionTest4(){
-        assertThrows(RuntimeException.class,()->{ double d = ExpressionEvaluator.evaluate("( 1 + ( / * ( sqrt 25 ) ) )");});
+        assertThrows(RuntimeException.class,()->{ double d = ExpressionEvaluator.evaluate("( 1 + ( / * ( sqrt ( 25 ) ) ) )");});
     }
     @Test
     void validityofExpressionTest5(){
@@ -51,8 +48,17 @@ public class ExpressionEvaluatorTest {
         assertThrows(RuntimeException.class,()->{ double d = ExpressionEvaluator.evaluate("( 1 + ( 3 ) )");});
     }
     @Test
+    void validityofExpressionTest7(){
+        assertEquals(273,ExpressionEvaluator.evaluate("( 1 + ( sqrt ( 256 ) * sqrt ( 289 ) ) )"));
+    }
+    @Test
+    void validityofExpressionTest8(){
+        assertThrows(RuntimeException.class,()->{ double d = ExpressionEvaluator.evaluate("( 1 + sqrt ( ) )");});
+    }
+    @Test
     void precisionTest(){
         assertEquals(37.25,ExpressionEvaluator.evaluate("( 34 + ( 2 * ( 52 / 32 ) ) )"));
     }
+
 }
 

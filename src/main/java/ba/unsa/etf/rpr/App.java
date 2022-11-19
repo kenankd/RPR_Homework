@@ -11,6 +11,15 @@ import static ba.unsa.etf.rpr.ExpressionCheck.*;
 public class App {
     public static void main(String[] args) {
         try {
+            ExpressionEvaluator e = new ExpressionEvaluator();
+            Double result = e.evaluate((args[0]));
+            System.out.println(result);
+        }
+        catch(RuntimeException e){
+            System.out.println("Izraz nije ispravan");
+        }
+        //ovako bi se izveo main da iz cmd-a saljemo niz stringova
+    /*  try {
             if (args.length < 4 || !Objects.equals(args[0], "(")) {
                 throw new RuntimeException();
             }
@@ -28,6 +37,6 @@ public class App {
         catch(RuntimeException e){
             System.out.println("Izraz nije ispravan");
         }
-
+ */
     }
 }
