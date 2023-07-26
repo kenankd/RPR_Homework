@@ -4,6 +4,6 @@ This project is a command-line tool written in Java using IntelliJ IDEA that sol
 
 ## Features
 
-- Solve arithmetic equations: The program can handle basic arithmetic operations like addition, subtraction, multiplication, and division.
+- Solve arithmetic equations: The program can handle basic arithmetic operations like addition, subtraction, multiplication, and division and the sqrt operation.
 - Parentheses support: The solver respects the order of operations by correctly evaluating expressions within parentheses.
 - Error handling: The program performs syntax checking and provides meaningful error messages for invalid input expressions.
